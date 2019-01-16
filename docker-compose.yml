@@ -18,6 +18,8 @@ services:
       # Link to MYSQL DB (see below)
       - db
       - redis
+    networks:
+      - mrossi-net
 
   # MYSQL Database
   db:
@@ -28,11 +30,15 @@ services:
       - "MYSQL_HOST=localhost"
     volumes:
       - emon-db-data:/var/lib/mysql
+    networks:
+      - mrossi-net
   redis:
     # Official redis image
     image: redis:5
     volumes:
       - emon-redis-data:/data
+    networks:
+      - mrossi-net
 
 volumes:
   emon-phpfiwa:
@@ -45,3 +51,7 @@ volumes:
     driver: local
   emon-redis-data:
     driver: local
+
+networks:
+  mrossi-net:
+    external: true
