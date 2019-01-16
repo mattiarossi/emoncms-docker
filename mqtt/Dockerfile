@@ -1,5 +1,5 @@
 # Offical Docker PHP & Apache image https://hub.docker.com/_/php/
-FROM php:7.3-cli
+FROM php:7.0-cli
 
 # Install deps
 RUN apt-get update && apt-get install -y \
