@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
               libcurl4-gnutls-dev \
               libmcrypt-dev \
               libmosquitto-dev \
-              git-core
+              git-core 
 
 # Enable PHP modules
 RUN docker-php-ext-install -j$(nproc) mysqli curl json mcrypt gettext
@@ -44,6 +44,7 @@ RUN chown www-data:root /var/lib/phptimeseries
 # Create Emoncms logfile
 RUN touch /var/log/emoncms.log
 RUN chmod 666 /var/log/emoncms.log
+
 
 
 # TODO
