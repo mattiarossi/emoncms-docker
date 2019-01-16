@@ -4,7 +4,7 @@ version: '2'
 
 services:
 
-  # PHP & apache container using offical Docker PHP iamge
+  # PHP & apache container using offical Docker PHP image
   web:
     # If pre-built image from docker hub exists then use that (docker pull openenergymonitor/emoncms:latest) if not Buildcontainer see Dockerflile
     image: openenergymonitor/emoncms:latest
@@ -37,6 +37,13 @@ services:
     image: redis:5
     volumes:
       - emon-redis-data:/data
+    networks:
+      - mrossi-net
+  # PHP container using offical Docker PHP image for the MQTT integration
+  mqtt:
+    #    
+    image: openenergymonitor/emoncms-mqtt:latest
+    build: ./mqtt
     networks:
       - mrossi-net
 
