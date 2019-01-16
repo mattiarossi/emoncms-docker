@@ -46,6 +46,11 @@ services:
     build: 
       context: ./
       dockerfile: ./mqtt/Dockerfile
+    volumes:
+      # mount docker volumes persistant inside docker container
+      - emon-phpfiwa:/var/lib/phpfiwa
+      - emon-phpfina:/var/lib/phpfina
+      - emon-phptimeseries:/var/lib/phptimeseries
     networks:
       - mrossi-net
 
