@@ -43,7 +43,9 @@ services:
   mqtt:
     #    
     image: openenergymonitor/emoncms-mqtt:latest
-    build: ./mqtt
+    build: 
+      context: ./
+      dockerfile: ./mqtt/Dockerfile
     networks:
       - mrossi-net
 

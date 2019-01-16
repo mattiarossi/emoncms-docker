@@ -17,7 +17,7 @@ RUN pecl install Mosquitto-0.4.0 \
 
 
 # Add custom PHP config
-COPY ../config/php.ini /usr/local/etc/php/
+COPY config/php.ini /usr/local/etc/php/
 
 # NOT USED ANYMORE - GIT CLONE INSTEAD
 # Copy in emoncms files, files can be mounted from local FS for dev see docker-compose
@@ -26,7 +26,7 @@ COPY ../config/php.ini /usr/local/etc/php/
 # Clone in master Emoncms repo & modules - overwritten in development with local FS files
 RUN git clone https://github.com/emoncms/emoncms.git /var/www/html
 
-COPY ../docker.settings.php /var/www/html/settings.php
+COPY docker.settings.php /var/www/html/settings.php
 
 # Create folders & set permissions for feed-engine data folders (mounted as docker volumes in docker-compose)
 # Create Emoncms logfile

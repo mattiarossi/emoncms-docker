@@ -29,6 +29,7 @@ RUN git clone https://github.com/emoncms/emoncms.git /var/www/html
 RUN git clone https://github.com/emoncms/dashboard.git /var/www/html/Modules/dashboard
 RUN git clone https://github.com/emoncms/graph.git /var/www/html/Modules/graph
 RUN git clone https://github.com/emoncms/app.git /var/www/html/Modules/app
+RUN git clone https://github.com/mattiarossi/evenodd.git /var/www/html/Modules/evenodd
 
 COPY docker.settings.php /var/www/html/settings.php
 
