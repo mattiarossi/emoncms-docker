@@ -1,6 +1,6 @@
 # dev enviroment setup
 
-version: '2'
+version: '2.1'
 services:
 
   web:
@@ -17,6 +17,7 @@ services:
   db:
     env_file:
       - 'default.docker-env'
+
   redis:
     env_file:
       - 'default.docker-env'

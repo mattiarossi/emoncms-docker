@@ -1,6 +1,6 @@
 # Base docker compose, added to by docker-compose.override or docker-compose.prod. See Readme.md
 
-version: '2'
+version: '2.1'
 
 services:
 
@@ -32,6 +32,11 @@ services:
       - emon-db-data:/var/lib/mysql
     networks:
       - mrossi-net
+    healthcheck:
+      test: "mysqladmin ping -h localhost -u $$MYSQL_USER -p$$MYSQL_PASSWORD"
+      timeout: 20s
+      retries: 10
+      
   redis:
     # Official redis image
     image: redis:5
@@ -46,6 +51,9 @@ services:
     build: 
       context: ./
       dockerfile: ./mqtt/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy  
     volumes:
       # mount docker volumes persistant inside docker container
       - emon-phpfiwa:/var/lib/phpfiwa

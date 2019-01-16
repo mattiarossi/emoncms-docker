@@ -1,6 +1,6 @@
 # production / deployment / clean testing enviroment setup
 
-version: '2'
+version: '2.1'
 services:
 
   web:
@@ -23,3 +23,7 @@ services:
     env_file:
      - '.docker-env'
   
+  redis:
+    env_file:
+      - 'default.docker-env'
+
