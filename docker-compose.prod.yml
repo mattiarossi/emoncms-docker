@@ -25,5 +25,9 @@ services:
   
   redis:
     env_file:
-      - 'default.docker-env'
+      - '.docker-env'
+
+  mqtt:
+    env_file:
+      - '.docker-env'
 

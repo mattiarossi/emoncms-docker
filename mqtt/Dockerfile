@@ -41,9 +41,12 @@ RUN chown www-data:root /var/lib/phptimeseries
 RUN touch /var/log/emoncms.log
 RUN chmod 666 /var/log/emoncms.log
 
-CMD [ "php", "/var/www/html/scripts/phpmqtt_input.php" ]
+ADD mqtt/run.sh /tmp/run.sh
+RUN chmod +x /tmp/run.sh
+ENTRYPOINT ["/tmp/run.sh"]
 
 # TODO
 # Add Pecl :
 # - dio
 # - Swiftmailer
+
